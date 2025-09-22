@@ -7,13 +7,17 @@ type ErrorResponse = MessageResponse & {
 };
 
 type ImageGenerationRequest = {
-  topic: string;
-  text?: string;
+  prompt: string;
 };
 
 type ImageGenerationResponse = {
-  imageUrl: string;
+  success?: boolean;
+  imageUrl: string | null;
   prompt: string;
+  description?: string;
+  message?: string;
+  fallback?: boolean;
+  contentPolicyViolation?: boolean;
 };
 
 export {

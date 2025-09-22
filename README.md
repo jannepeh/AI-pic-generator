@@ -23,14 +23,13 @@ AI-powered YouTube thumbnail generator that creates engaging thumbnails using Op
 
 ### POST /api/v1/generate-thumbnail
 
-Generate a YouTube thumbnail image based on a topic.
+Generate a YouTube thumbnail image based on a text prompt.
 
 **Input:**
 
 ```json
 {
-  "topic": "space exploration",
-  "text": "Explore the Universe!"
+  "prompt": "space exploration with astronauts and planets"
 }
 ```
 
@@ -38,8 +37,9 @@ Generate a YouTube thumbnail image based on a topic.
 
 ```json
 {
+  "success": true,
   "imageUrl": "https://example.com/generated-image.png",
-  "prompt": "YouTube thumbnail about space exploration with stars, planets, astronauts and text 'Explore the Universe!' in bold letters"
+  "prompt": "YouTube thumbnail: space exploration with astronauts and planets, vibrant colors, eye-catching design, high contrast, professional quality, 16:9 aspect ratio, thumbnail style, engaging and clickable"
 }
 ```
 
@@ -49,10 +49,10 @@ Generate a YouTube thumbnail image based on a topic.
 
 The application uses OpenAI's DALL-E API to generate custom YouTube thumbnails:
 
-1. Takes a topic/theme as input
-2. Optionally accepts text to overlay on the thumbnail
-3. Generates a detailed prompt for DALL-E
-4. Returns the generated image URL
+1. Takes a text prompt as input describing what you want in the thumbnail
+2. Enhances the prompt with YouTube thumbnail-specific styling instructions
+3. Sends the request to DALL-E for image generation
+4. Returns the generated image URL and enhanced prompt
 
 ### Screenshots
 
@@ -66,12 +66,12 @@ _Example API request using Postman to generate a thumbnail_
 ![AI Generated Thumbnail](screenshots/generated-pic.png)
 _AI-generated YouTube thumbnail created by the API_
 
-### Example Topics and Results
+### Example Prompts and Results
 
-- **Space**: Generates images with stars, planets, astronauts, rockets
-- **Cooking**: Creates thumbnails with food, kitchen utensils, chef elements
-- **Gaming**: Produces gaming-themed imagery with controllers, characters, effects
-- **Travel**: Shows landscapes, landmarks, travel-related imagery
+- **"space exploration with rockets and stars"** - Generates cosmic imagery with spacecraft and celestial bodies
+- **"cooking pasta with fresh ingredients"** - Creates food photography with vibrant ingredients and kitchen elements
+- **"gaming setup with RGB lighting"** - Produces gaming-themed imagery with colorful lighting and equipment
+- **"travel destination tropical beach sunset"** - Shows scenic travel imagery with beaches and sunsets
 
 ## Technical Implementation
 

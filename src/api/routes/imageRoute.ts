@@ -7,11 +7,6 @@ const router = express.Router();
 
 router
   .route('/')
-  .post(
-    body('topic').notEmpty().escape(),
-    body('text').optional().escape(),
-    validate,
-    generateThumbnail
-  );
+  .post(body('prompt').notEmpty().escape(), validate, generateThumbnail);
 
 export default router;
